@@ -1,0 +1,38 @@
+{% extends 'common.html' %}
+{% load static %}
+{% block common %}
+    <br><br><br><br>
+    <form method="post" action="{% url 'admin_login' %}">
+    {% csrf_token %}
+    <table align="center" border="0" width="400">
+        <tr>
+            <th colspan="2"><h3 style="background-color: lightgreen;color: white;text-align: center">Admin Login Page</h3></th>
+        </tr>
+        <tr>
+            <th width="150">Username</th>
+            <th width="250">
+                <input type="text" placeholder="Username" name="u1" required>
+            </th>
+        </tr>
+        <tr>
+            <th>Password</th>
+            <th>
+                <input type="password" placeholder="Password" name="p1" required>
+            </th>
+        </tr>
+        <tr>
+            <th colspan="2" style="text-align: center">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </th>
+        </tr>
+        {% for x in messages %}
+         <tr><th colspan="2">
+         <div class="alert alert-primary" role="alert">
+               {{x}}
+         </div>
+         </th></tr>
+        {% endfor %}
+
+    </table>
+</form>
+{% endblock %}

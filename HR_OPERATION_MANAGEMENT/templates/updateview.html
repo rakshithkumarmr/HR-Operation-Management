@@ -1,0 +1,39 @@
+{% extends 'admin_common.html' %}
+{% block admin_common %}
+    <br><br>
+    <table align="center" BORDER="2">
+        <tr style="text-align: center;height: 60px;background-color: dodgerblue;color: white">
+            <th WIDTH="150">EMPLOYEE ID</th>
+            <th WIDTH="200">EMPLOYEE NAME</th>
+            <th width="250">EMPLOYEE DESIGINATION</th>
+            <th width="300">EMPLOYEE ADDRESS</th>
+            <th width="250">EMPLOYEE CONTACT NO</th>
+            <th width="200">EMPLOYEE EMAIL</th>
+        </tr>
+        {% for x in object_list %}
+            <tr style="text-align: center">
+                <th>
+                    <a href="{% url 'update_employee' x.id %}">{{ x.id }}
+                    </a>
+                </th>
+                <th>{{ x.name }}</th>
+                <th>{{ x.designation }}</th>
+                <th>{{ x.address }}</th>
+                <th>{{ x.contact_no }}</th>
+                <th>{{ x.email }}</th>
+            </tr>
+        {% endfor %}
+    </table>
+    {% for x in messages %}
+    <table align="center">
+    <tr>
+        <th>
+            <div class="alert alert-warning" role="alert">
+                {{ x }}
+            </div>
+        </th>
+    </tr>
+    </table>
+    {% endfor %}
+
+{% endblock %}

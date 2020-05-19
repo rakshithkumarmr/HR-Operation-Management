@@ -1,0 +1,25 @@
+{% extends 'admin_common.html' %}
+{% block admin_common %}
+    <br><br>
+    <table align="center" BORDER="2">
+        <tr style="text-align: center;height: 60px;background-color: dodgerblue;color: white">
+            <th WIDTH="150">EMPLOYEE ID</th>
+            <th WIDTH="200">EMPLOYEE NAME</th>
+            <th width="250">EMPLOYEE DESIGINATION</th>
+            <th width="300">EMPLOYEE ADDRESS</th>
+            <th width="250">EMPLOYEE CONTACT NO</th>
+            <th width="200">EMPLOYEE EMAIL</th>
+        </tr>
+        {% for x in object_list %}
+            <tr style="text-align: center">
+                <th>{{ x.id }}</th>
+                <th>{{ x.name }}</th>
+                <th>{{ x.designation }}</th>
+                <th>{{ x.address }}</th>
+                <th>{{ x.contact_no }}</th>
+                <th>{{ x.email }}</th>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
